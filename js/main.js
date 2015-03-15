@@ -60,7 +60,7 @@ function updateData() {
 			setTimeout('updateData()',30000);
 		}
 	}).fail(function() {
-		alert("Something went wrong. Please try again.");
+		console.log("Something went wrong. Please try again.");
 	});
 }
 
