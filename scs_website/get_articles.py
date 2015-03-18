@@ -49,7 +49,7 @@ with con:
 			if match:
 				google_album = match.group(1)
 
-				os.makedirs("files/articles/" + google_album, exist_ok=True)
+				os.makedirs((Path(__file__).resolve() / '..' / "files" / "articles" / google_album).resolve(), exist_ok=True)
 
 				picasa_r = requests.get("http://picasaweb.google.com/data/feed/api/user/SCSchwielochsee/albumid/" + google_album, params={'alt' : 'json'})
 				picasa = picasa_r.json()
