@@ -1,6 +1,7 @@
 <?php
     header('Content-Type: text/html; charset=UTF-8');
     setlocale (LC_TIME, 'de_DE@euro', 'de_DE', 'deu_deu');
+    date_default_timezone_set('Europe/Berlin');
     $order = [
                 ['id' => 'weather1', 'duration' => 10], 
                 ['id' => 'weather2', 'duration' => 6], 
