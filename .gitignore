@@ -1,2 +1,2 @@
-*.sqlite
+news.sqlite
 __pycache__/
