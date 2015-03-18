@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import tweepy
 import sqlite3 as s3
 from pathlib import Path

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import feedparser
 import requests
 import shutil
@@ -22,8 +24,7 @@ with con:
 	cur.execute("SELECT id, url, path FROM downloads ORDER BY priority")
 
 	for result in cur.fetchall():
-		print(result[0])
-		file_path = Path("../").resolve() / result[2]
+		file_path = Path(Path(__file__).resolve() / ".." / "..").resolve() / result[2]
 
 		f = file_path.open("wb")
 		
