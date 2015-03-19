@@ -148,7 +148,7 @@
 
     <?php
         
-        $results = $db->query("SELECT * FROM news WHERE published > date('now', '-3 month') and type='article' ORDER BY published DESC LIMIT 6");
+        $results = $db->query("SELECT * FROM news WHERE published > date('now', '-3 month') and type='article' ORDER BY published ASC LIMIT 6");
         $count = 1; 
         while ($row = $results->fetchArray()) {
             array_push($order, ['id' => 'article' . $count, 'duration' => 0]);
@@ -179,7 +179,7 @@
             ?>
             <div class="article-heading" style="">
                 <h1><?php echo $row['title']; ?></h1>
-                <cite><?php echo $row['author']; ?>, <?php echo utf8_encode(strftime("%A, den %d. %B %Y %H:%M", strtotime($row['published']))); ?>  Uhr</cite>
+                <cite><?php echo $row['author']; ?>, <?php echo utf8_encode(strftime("%A, den %d. %B %Y", strtotime($row['published']))); ?></cite>
             </div>
             <div class="article-text">
                 <?php echo $row['text']; ?>

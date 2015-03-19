@@ -49,10 +49,20 @@ $(document).ready(function() {
 
     $('.article').find('span.article-bottom').on('scrollSpy:enter', function() {
         console.log("enter bottom");
-        var article = $(this);
+        var article = $(this).parent();
+        var timeout = 0;
+
+        if($(article).outerHeight() > window.innerHeight) {
+            timeout = 20000;
+        } else {
+            timeout = ($(article).outerHeight() * 40) + 4000
+        }
+        console.log(timeout/1000);
+        console.log($(article).outerHeight());
+
         setTimeout(function(){ 
             showNext();
-        }, 35000);
+        }, timeout);
     });
 
     $('.article').find('span.article-bottom').scrollSpy();
