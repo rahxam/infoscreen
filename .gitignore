@@ -1,3 +1,4 @@
 news.sqlite
 __pycache__/
 *.log
+*.sublime-*
