@@ -6,6 +6,6 @@ if ! [ $(ping -q -c 1 "google.de" 2>&1 | grep "1 received" | sed "s/.*\(1\) rece
 else
     echo alive
     /etc/init.d/ntp stop
-    ntpdate -u ntp.ubuntu.com
+    /usr/sbin/ntpdate -u zeit.fu-berlin.de
     /etc/init.d/ntp start
 fi
