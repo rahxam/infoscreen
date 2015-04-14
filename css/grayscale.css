@@ -496,7 +496,7 @@ body {
     webkit-tap-highlight-color: rgba(0,0,0,.2);
 }
 
-table, table p {
+table, table p, table td, table th {
     font-size: 14px;
     margin:0;
     padding:10px 5px;
