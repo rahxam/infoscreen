@@ -1,0 +1,1 @@
+/home/pi/umtskeeper/umtskeeper --sakisoperators 'APN="pinternet.interkom.de" USBINTERFACE="3" USBDRIVER="option" USBMODEM="19d2:0063" OTHER="USBMODEM" MODEM="OTHER"' --sakisswitches "--sudo --console" --devicename 'K3565-Z' --log --monthstart 12 &
