@@ -17,7 +17,10 @@ with con:
     for tweet in public_tweets:
 
         cur.execute("SELECT foreign_id FROM news WHERE foreign_id = %s" % tweet.id_str) 
-        result = cur.fetchone() 
+        result = cur.fetchone()
+        print(tweet.text)
 
         if not result:
+            print(tweet.id_str)
             cur.execute("INSERT INTO news (foreign_id, date, published, text, author, type) VALUES (?, ?, ?, ?, ?, 'twitter')", (tweet.id_str, tweet.created_at, tweet.created_at, tweet.text, tweet.author.screen_name))
+            
