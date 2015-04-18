@@ -3,9 +3,9 @@
     setlocale (LC_TIME, 'de_DE@euro', 'de_DE', 'deu_deu');
     date_default_timezone_set('Europe/Berlin');
     $order = [
-                ['id' => 'weather1', 'duration' => 10], 
-                ['id' => 'weather2', 'duration' => 6], 
-                ['id' => 'weather3', 'duration' => 6],  
+                ['id' => 'weather1', 'duration' => 15], 
+                ['id' => 'weather2', 'duration' => 15], 
+                ['id' => 'weather3', 'duration' => 10],  
                 ['id' => 'weather4', 'duration' => 15], 
             ];
 
@@ -217,7 +217,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Ideen und Kontakt</h2>
-                <p>Wir würden uns freuen in Zukunft die Webseite noch häufiger mit aktuellen Informationen zu versorgen. Dafür sind wir jedoch auf Ihre Zuarbeit angewiesen und freuen uns daher über Berichte, Ergebnisse, Bilder und alles was ansonsten die Mitglieder des Segelclubs interessieren könnte.</p>
+                <p>Wir würden uns freuen in Zukunft die Webseite noch häufiger mit aktuellen Informationen zu versorgen. Dafür sind wir jedoch auf eure Zuarbeit angewiesen und freuen uns daher über Berichte, Ergebnisse, Bilder und alles was ansonsten die Mitglieder des Segelclubs interessieren könnte.</p>
                 <p><a href="mailto:webmaster@sc-schwielochsee.de">webmaster@sc-schwielochsee.de</a><br />
                 <a href="callto:01781383873">0178 / 138 38 73</a>
                 </p>
