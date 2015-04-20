@@ -3,12 +3,13 @@
     setlocale (LC_TIME, 'de_DE@euro', 'de_DE', 'deu_deu');
     date_default_timezone_set('Europe/Berlin');
     $order = [
-                ['id' => 'weather1', 'duration' => 15], 
-                ['id' => 'weather2', 'duration' => 15], 
-                ['id' => 'weather3', 'duration' => 10],  
-                ['id' => 'weather4', 'duration' => 15], 
+                ['id' => 'weather1', 'duration' => 20], 
+                ['id' => 'weather2', 'duration' => 20], 
+                ['id' => 'weather3', 'duration' => 15],  
+                ['id' => 'weather4', 'duration' => 25], 
             ];
-
+    $months = array("", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
+    $days = array("", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag");
     $db = new SQLite3('news.sqlite');
 
 ?>
@@ -123,10 +124,11 @@
 
     <?php
         
-        $results = $db->query("SELECT * FROM news WHERE published > date('now', '-3 month') and type='twitter' ORDER BY published ASC LIMIT 6");
+        $results = $db->query("SELECT * FROM news WHERE published > date('now', '-3 month') and type='twitter' ORDER BY published DESC LIMIT 6");
         $count = 1; 
         while ($row = $results->fetchArray()) {
             array_push($order, ['id' => 'twitter' . $count, 'duration' => 10]);
+            $datetime = strtotime($row['published']);
     ?>
 
         <!-- Twitter Section -->
@@ -135,7 +137,7 @@
                 <div class="container">
                     <div class="col-lg-8 col-lg-offset-2">
                         <blockquote><?php echo $row['text']; ?>
-                        <cite><?php echo utf8_encode(strftime("%A, den %d. %B %Y %H:%M", strtotime($row['published']))); ?> Uhr</cite></blockquote>
+                        <cite><?php echo $days[date("N", $datetime)] . strftime(", den %d.", $datetime) . $months[date("n", $datetime)] . strftime(" %Y %H:%M", $datetime); ?> Uhr</cite></blockquote>
                     </div>
                 </div>
             </div>
@@ -148,10 +150,11 @@
 
     <?php
         
-        $results = $db->query("SELECT * FROM news WHERE published > date('now', '-3 month') and type='article' ORDER BY published ASC LIMIT 6");
+        $results = $db->query("SELECT * FROM news WHERE published > date('now', '-3 month') and type='article' ORDER BY published DESC LIMIT 6");
         $count = 1; 
         while ($row = $results->fetchArray()) {
             array_push($order, ['id' => 'article' . $count, 'duration' => 0]);
+            $datetime = strtotime($row['published']);
     ?>
 
         <!-- Article Section -->
@@ -179,7 +182,7 @@
             ?>
             <div class="article-heading" style="">
                 <h1><?php echo $row['title']; ?></h1>
-                <cite><?php echo $row['author']; ?>, <?php echo utf8_encode(strftime("%A, den %d. %B %Y", strtotime($row['published']))); ?></cite>
+                <cite><?php echo $row['author']; ?>, <?php echo $days[date("N", $datetime)] . strftime(", den %d.", $datetime) . $months[date("n", $datetime)] . strftime(" %Y %H:%M", $datetime); ?></cite>
             </div>
             <div class="article-text">
                 <?php echo $row['text']; ?>

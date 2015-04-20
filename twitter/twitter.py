@@ -9,7 +9,7 @@ auth.set_access_token("2474663810-ROMX1gs3hi7YYjkinCA87ZmoLQeaQoxpmN7J7Yg", "uzW
 
 api = tweepy.API(auth)
 
-public_tweets = api.home_timeline(count=5)
+public_tweets = api.home_timeline(count=15)
 
 con = s3.connect(str(((Path(__file__).resolve() / '..' / '..').resolve() / 'news.sqlite').resolve()))
 with con:
@@ -18,9 +18,8 @@ with con:
 
         cur.execute("SELECT foreign_id FROM news WHERE foreign_id = %s" % tweet.id_str) 
         result = cur.fetchone()
-        print(tweet.text)
 
         if not result:
-            print(tweet.id_str)
+            print(tweet.text)
             cur.execute("INSERT INTO news (foreign_id, date, published, text, author, type) VALUES (?, ?, ?, ?, ?, 'twitter')", (tweet.id_str, tweet.created_at, tweet.created_at, tweet.text, tweet.author.screen_name))
             
