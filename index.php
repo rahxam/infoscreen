@@ -182,7 +182,7 @@
             ?>
             <div class="article-heading" style="">
                 <h1><?php echo $row['title']; ?></h1>
-                <cite><?php echo $row['author']; ?>, <?php echo $days[date("N", $datetime)] . strftime(", den %d.", $datetime) . $months[date("n", $datetime)] . strftime(" %Y %H:%M", $datetime); ?></cite>
+                <cite><?php echo $row['author']; ?> am <?php echo $days[date("N", $datetime)] . strftime(", den %d.", $datetime) . $months[date("n", $datetime)] . strftime(" %Y %H:%M", $datetime); ?></cite>
             </div>
             <div class="article-text">
                 <?php echo $row['text']; ?>
