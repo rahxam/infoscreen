@@ -9,7 +9,7 @@ auth.set_access_token("2474663810-ROMX1gs3hi7YYjkinCA87ZmoLQeaQoxpmN7J7Yg", "uzW
 
 api = tweepy.API(auth)
 
-public_tweets = api.home_timeline(count=15)
+public_tweets = api.user_timeline(count=15)
 
 con = s3.connect(str(((Path(__file__).resolve() / '..' / '..').resolve() / 'news.sqlite').resolve()))
 with con:
