@@ -29,15 +29,15 @@ fi
 pkill "curl*"
 
 if [ `stat --format=%Y weather/bodenanalyse_europa.jpg` -le $(( `date +%s` - 14300 )) ]; then 
-	curl "http://thumb.sc-schwielochsee.de/?format=jpg&width=1020&url=http://www.dwd.de/bvbw/generator/DWDWWW/Content/Oeffentlichkeit/KU/KUPK/Hobbymet/Wetterkarten/Analysekarten/Analysekarten__Default__Boden__Europa__Luftdruck__Bild,property=default.png" -o weather/bodenanalyse_europa.jpg
+	curl "http://thumb.sc-schwielochsee.de/?format=jpg&width=1020&url=http://www.dwd.de/DWD/wetter/wv_spez/hobbymet/wetterkarten/bwk_bodendruck_na_ana.png" -o weather/bodenanalyse_europa.jpg
 fi
 
 if [ `stat --format=%Y weather/radar_deutschland.jpg` -le $(( `date +%s` - 3700 )) ]; then 
-	curl "http://thumb.sc-schwielochsee.de/?format=jpg&height=653&url=http://www.dwd.de/bvbw/generator/DWDWWW/Content/Oeffentlichkeit/WV/WVFK/Dynamisches/Regional/noaaDeutAktuell,templateId=poster,property=default.jpg" -o weather/radar_deutschland.jpg
+	curl "http://thumb.sc-schwielochsee.de/?format=jpg&height=653&url=http://www.dwd.de/DWD/wetter/radar/rad_brd_akt.jpg" -o weather/radar_deutschland.jpg
 fi
 
 if [ `stat --format=%Y weather/prognose_48h.jpg` -le $(( `date +%s` - 14300 )) ]; then 
-	curl "http://thumb.sc-schwielochsee.de/?format=jpg&url=http://www.dwd.de/bvbw/generator/DWDWWW/Content/Oeffentlichkeit/KU/KUPK/Hobbymet/Wetterkarten/Kurzfrist-Prognosekarten/KFprogkarte00Z__Default__TKB__H_2B48__Europa__Bild,property=default.jpg" -o weather/prognose_48h.jpg
+	curl "http://thumb.sc-schwielochsee.de/?format=jpg&url=http://www.dwd.de/DWD/wetter/wv_allg/europa/bilder/vhs_euro_uebermorgen.jpg" -o weather/prognose_48h.jpg
 fi
 
 pkill "curl*"
